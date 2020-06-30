@@ -1,0 +1,8 @@
+{
+    "domain": "https://github.com/lorenzlars/homeassistant-tts-microsoft-ssml",
+    "name": "SSML Microsoft TTS",
+    "documentation": "https://github.com/lorenzlars/homeassistant-tts-microsoft-ssml",
+    "dependencies": [],
+    "codeowners": ["Lars Lorenz"],
+    "requirements": []
+  }
