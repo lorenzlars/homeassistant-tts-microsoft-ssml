@@ -109,6 +109,15 @@ def get_engine(hass, config, discovery_info=None):
         config[CONF_REGION],
     )
 
+def unicode_replacer(text):
+    text = text.replace('ä', '&#228;')
+    text = text.replace('ö', '&#246;')
+    text = text.replace('ü', '&#252;')
+    text = text.replace('Ä', '&#196;')
+    text = text.replace('Ö', '&#214;')
+    text = text.replace('Ü', '&#220;')
+
+    return text
 
 class MicrosoftProvider(Provider):
     """The Microsoft speech API provider."""
@@ -153,7 +162,7 @@ class MicrosoftProvider(Provider):
                 'Content-Type': 'application/ssml+xml',
                 'X-Microsoft-OutputFormat': 'audio-24khz-160kbitrate-mono-mp3'
             }
-            body = message
+            body = unicode_replacer(message)
             response = requests.post(constructed_url, headers=headers, data=body)
         except HTTPException as ex:
             _LOGGER.error("Error occurred for Microsoft TTS: %s", ex)
