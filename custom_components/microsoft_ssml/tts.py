@@ -109,6 +109,7 @@ def get_engine(hass, config, discovery_info=None):
         config[CONF_REGION],
     )
 
+
 def unicode_replacer(text):
     text = text.replace('ä', '&#228;')
     text = text.replace('ö', '&#246;')
@@ -118,6 +119,7 @@ def unicode_replacer(text):
     text = text.replace('Ü', '&#220;')
 
     return text
+
 
 class MicrosoftProvider(Provider):
     """The Microsoft speech API provider."""
